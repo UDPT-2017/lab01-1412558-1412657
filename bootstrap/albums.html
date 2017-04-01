@@ -3,54 +3,91 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> <!-- đọc cấu hình thiết bị-->
-	<title>Blog</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1"> <!-- đọc cấu hình thiết bị-->
+	<title>Albums</title>
+	
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
 	<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<style>
-		body
-		{
-			padding-top: 70px;
-			padding-bottom: 70px;
-		}
-	</style>
+
 </head>
 <body>
-	<header></header>
-
 	<div class="container">
-	  	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	    	<div class="container">
-		      	<div class="navbar-header">
-		        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
-		          		<span class="sr-only">Toggle navigation</span>
-		          		<span class="icon-bar"></span>
-		          		<span class="icon-bar"></span>
-		         		<span class="icon-bar"></span>
-		       		 </button>
-		        	<a class="navbar-brand" href="index.html">Ứng Dụng Phân Tán</a>
-		      	</div>
-		      	<div class="collapse navbar-collapse" id="collapse">
-		        	<ul class="nav navbar-nav navbar-left">
-		        		<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
-						<li class="active"><a href="albums.html"><span class="glyphicon glyphicon-picture"></span> Albums </a></li>
-						<li><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
-						<li><a href="blog.html"><span class="glyphicon glyphicon-user"></span> Blog </a></li>
-		        	</ul>
-		      	</div>
-	    	</div>
-	  	</nav>
-		<!--   cho biết đang ở đâu, từ đâu đến-->
-		 <ol class="breadcrumb">
-		 	<li><a href="index.html">Home</a></li>
-		 	<li class="active">Albums</li>
-		</ol> 
-	</div>
+        <div class="row">
+        	<!-- header 12 cột -->
+            <div class="col-md-12">
+			    <header>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6">
+							<a href="index.html"> <img class="logo" alt="Logo" src="img/logo-khtn.jpg"></a>
+							</div>
+							<div class="col-md-6">
+								
+							</div>
+						</div>
+					</div>
 
-<!--  kết thúc phần menu    -->
 
-		ĐÂY LÀ TRANG ALBUMS
+					<div class="container">
+					  	<nav class="navbar navbar-default" role="navigation">
+					    	<div class="container-fluid">
+						      	<div class="navbar-header">
+						        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
+						          		<span class="sr-only">Toggle navigation</span>
+						          		<span class="icon-bar"></span>
+						          		<span class="icon-bar"></span>
+						         		<span class="icon-bar"></span>
+						       		 </button>
+						       		 <a class="navbar-brand" href="index.html">UDPT</a>
+						      	</div>
+						      	<div class="collapse navbar-collapse" id="collapse">
+						        	<ul class="nav navbar-nav navbar-left">
+						        		<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
+										<li class="active"><a href="albums.html"><span class="glyphicon glyphicon-picture"></span> Albums </a></li>
+										<li><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
+										<li><a href="blog.html"><span class="glyphicon glyphicon-user"></span> Blog </a></li>
+						        	</ul>
+						      	</div>
+					    	</div>
+
+					    	<!--   cho biết đang ở đâu, từ đâu đến-->
+					    	<ol class="breadcrumb">
+					    		<li><a href="index.html">Home</a></li>
+						 		<li class="active">Albums</li>
+							</ol>
+					  	</nav>	  
+					</div>
+				</header>
+            </div>
+			<!-- kết thúc header 12 cột -->
+
+
+            <!-- content 12 cột -->
+            <div class="col-md-12">
+            	<div class="container">
+            		<p>Ngày 31/3, ông Phạm Tân, Chủ tịch phường Ea Tam, TP. Buôn Ma Thuột (Đắk Lắk), cho biết đơn vị vừa ban hành quyết định yêu cầu bà Quách Thị Tuất (vợ ông Nguyễn Sĩ Kỷ - Phó trưởng Ban Nội chính tỉnh ủy) trong vòng 10 ngày phải tháo dỡ căn biệt thự xây dựng không phép trên đất nông nghiệp.
+Theo đó, quyết định này cũng buộc bà Tuất phải khôi phục lại hiện trạng ban đầu của đất trước khi vi phạm.
+Theo hồ sơ của UBND phường Ea Tam, bà Tuất đứng tên chủ sử dụng ba thửa đất có tổng diện tích gần 1 ha tại tổ dân phố 11, phường Ea Tam. Về quy hoạch sử dụng đất đến năm 2020, ba thửa trên thuộc quy hoạch đất trồng cây lâu năm.
+            		</p>
+            	</div>
+            </div>
+
+            <!-- footer trái 12 cột -->
+            <div class="col-md-12">
+                <div class="container">
+	                <footer>
+	                	<p class="copyright">2017 Powered By Blue Group, Theme By Bootstrap</p>
+	                </footer>
+                </div>	
+                
+            </div>
+
+        </div>
+
+    <div>
 </body>
 </html>

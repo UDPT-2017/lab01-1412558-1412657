@@ -3,84 +3,123 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> <!-- đọc cấu hình thiết bị-->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1"> <!-- đọc cấu hình thiết bị-->
 	<title>About</title>
+	
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/style.css">
+
 	<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<style>
-		body
-		{
-			padding-top: 70px;
-			padding-bottom: 70px;
-		}
-	</style>
+
 </head>
 <body>
-	<header></header>
-
 	<div class="container">
-	  	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-	    	<div class="container">
-		      	<div class="navbar-header">
-		        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
-		          		<span class="sr-only">Toggle navigation</span>
-		          		<span class="icon-bar"></span>
-		          		<span class="icon-bar"></span>
-		         		<span class="icon-bar"></span>
-		       		 </button>
-		        	<a class="navbar-brand" href="index.html">Ứng Dụng Phân Tán</a>
-		      	</div>
-		      	<div class="collapse navbar-collapse" id="collapse">
-		        	<ul class="nav navbar-nav navbar-left">
-		        		<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
-						<li><a href="albums.html"><span class="glyphicon glyphicon-picture"></span> Albums </a></li>
-						<li class="active"><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
-						<li><a href="blog.html"><span class="glyphicon glyphicon-user"></span> Blog </a></li>
-		        	</ul>
-		      	</div>
-	    	</div>
-	  	</nav>
-		<!--   cho biết đang ở đâu, từ đâu đến-->
-		 <ol class="breadcrumb">
-		 	<li><a href="index.html">Home</a></li>
-		 	<li class="active">About</li>
-		</ol> 
-	</div>
-<!--               kết thúc phần menu    -->
-<!--               phần nội dung    -->
-	<h1 class="text-center">THÔNG TIN CỦA NHÓM</h1>
-	<div class="container">
-		<p>Tên của nhóm là BLUE, nhóm được tạo ra để học tập môn Ứng Dụng Phân Tán. Màu xanh dương thể hiện trí tuệ, sức mạnh, vững vàng và mang tính chuyên nghiệp cao, nó mang lại cảm giác an tâm. Bên dưới là các thành viên của nhóm</p>
-	</div>
-	<br>
-	<div class="container">
-		<div class="col-md-6">
-			
-				<img style="max-width:200px;" class="img-circle" src="img/avatar-toan.jpg" alt="avatar-toan">
-				<p>MSSV: 1412558</p>
-				<p>Họ Tên: Phạm Quốc Toàn</p>
-				<p>Ngày Sinh: 22/04/1996</p>
-				<p>Địa chỉ: 35/7 Đỗ Thừa Luông, Tân Quý, Tân Phú, Hồ Chí Minh, Việt Nam</p>
-				<p>Email: bossdiemmaimai@gmail.com</p>
+        <div class="row">
+        	<!-- header 12 cột -->
+            <div class="col-md-12">
+			    <header>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-6">
+							<a href="index.html"> <img class="logo" alt="Logo" src="img/logo-khtn.jpg"></a>
+							</div>
+							<div class="col-md-6">
+								
+							</div>
+						</div>
+					</div>
 
 
-				<!-- đưa bản đồ vào web-->
-				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22170.524308998287!2d106.60569779865519!3d10.793533567520942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752c07e7cf3aab%3A0x709df5647b350438!2zMzUgxJDhu5cgVGjhu6thIEx1w7RuZywgVMOibiBRdcO9LCBUw6JuIFBow7osIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1491035210671" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+					<div class="container">
+					  	<nav class="navbar navbar-default" role="navigation">
+					    	<div class="container-fluid">
+						      	<div class="navbar-header">
+						        	<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
+						          		<span class="sr-only">Toggle navigation</span>
+						          		<span class="icon-bar"></span>
+						          		<span class="icon-bar"></span>
+						         		<span class="icon-bar"></span>
+						       		 </button>
+						       		 <a class="navbar-brand" href="index.html">UDPT</a>
+						      	</div>
+						      	<div class="collapse navbar-collapse" id="collapse">
+						        	<ul class="nav navbar-nav navbar-left">
+						        		<li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home </a></li>
+										<li><a href="albums.html"><span class="glyphicon glyphicon-picture"></span> Albums </a></li>
+										<li class="active"><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a></li>
+										<li><a href="blog.html"><span class="glyphicon glyphicon-user"></span> Blog </a></li>
+						        	</ul>
+						      	</div>
+					    	</div>
+
+					    	<!--   cho biết đang ở đâu, từ đâu đến-->
+					    	<ol class="breadcrumb">
+					    		<li><a href="index.html">Home</a></li>
+						 		<li class="active">About</li>
+							</ol>
+					  	</nav>	  
+					</div>
+				</header>
+            </div>
+			<!-- kết thúc header 12 cột -->
 
 
-		</div>
-		<div class="col-md-6">
-			<img style="max-width:200px;" class="img-circle" src="img/avatar-vy.jpg" alt="avatar-vy">
-				<p>MSSV: 1412657</p>
-				<p>Họ Tên: Nguyễn Tường Vy</p>
-				<p>Ngày Sinh: 20/11/1996</p>
-				<p>Địa chỉ: 310 Tô Ký, Tân Chánh Hiệp, Quận 12, Hồ Chí Minh, Việt Nam</p>
-				<p>Email: vytuong1120@gmail.com</p>
+            <!-- content 12 cột -->
+            <div class="col-md-12">
+				<div class="container">
+					<h1 class="text-center">THÔNG TIN CỦA NHÓM</h1>
+						<p>Tên của nhóm là BLUE, nhóm được tạo ra để học tập môn Ứng Dụng Phân Tán. Màu xanh dương thể hiện trí tuệ, sức mạnh, vững vàng và mang tính chuyên nghiệp cao, nó mang lại cảm giác an tâm. Bên dưới là các thành viên của nhóm</p>
 
-				<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d2329.8942750308775!2d106.61965315045026!3d10.857189377790807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x31752a22a9035491%3A0x7ada8704cd963d84!2zVMO0IEvDvSwgVMOibiBDaMOhbmggSGnhu4dwLCBRdeG6rW4gMTIsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!3m2!1d10.8580989!2d106.61879069999999!5e0!3m2!1svi!2s!4v1491035540842" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-		</div>
+					<div class="about-members">
+						<div class="row">
+							<div class="col-md-6">
+								<img style="max-width:200px;" class="img-circle" src="img/avatar-toan.jpg" alt="avatar-toan">
+								<p>MSSV: 1412558</p>
+								<p>Họ Tên: Phạm Quốc Toàn</p>
+								<p>Ngày Sinh: 22/04/1996</p>
+								<p>Địa chỉ: 35/7 Đỗ Thừa Luông, Tân Quý, Tân Phú, Hồ Chí Minh, Việt Nam</p>
+								<p>Email: bossdiemmaimai@gmail.com</p>
+							</div>
 
+							<div class="col-md-6">		
+								<!-- đưa bản đồ vào web-->
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d22170.524308998287!2d106.60569779865519!3d10.793533567520942!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752c07e7cf3aab%3A0x709df5647b350438!2zMzUgxJDhu5cgVGjhu6thIEx1w7RuZywgVMOibiBRdcO9LCBUw6JuIFBow7osIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1491035210671" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>	
+						</div>
+					</div>
+							
+
+					<div class="about-members">
+						<div class="row">		
+							<div class="col-md-6">
+								<img style="max-width:200px;" class="img-circle" src="img/avatar-vy.jpg" alt="avatar-vy">
+								<p>MSSV: 1412657</p>
+								<p>Họ Tên: Nguyễn Tường Vy</p>
+								<p>Ngày Sinh: 20/11/1996</p>
+								<p>Địa chỉ: 310 Tô Ký, Tân Chánh Hiệp, Quận 12, Hồ Chí Minh, Việt Nam</p>
+								<p>Email: vytuong1120@gmail.com</p>
+							</div>
+							<div class="col-md-6">
+									<iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d2329.8942750308775!2d106.61965315045026!3d10.857189377790807!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x31752a22a9035491%3A0x7ada8704cd963d84!2zVMO0IEvDvSwgVMOibiBDaMOhbmggSGnhu4dwLCBRdeG6rW4gMTIsIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!3m2!1d10.8580989!2d106.61879069999999!5e0!3m2!1svi!2s!4v1491035540842" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+							</div>		
+						</div>
+					</div>
+
+            	</div>
+            </div>
+
+            <!-- footer trái 12 cột -->
+            <div class="col-md-12">
+                <div class="container">
+	                <footer>
+	                	<p class="copyright">2017 Powered By Blue Group, Theme By Bootstrap</p>
+	                </footer>
+                </div>	 
+            </div>
+
+        </div>
+    <div>
 </body>
 </html>
