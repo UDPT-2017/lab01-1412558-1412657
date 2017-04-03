@@ -12,6 +12,7 @@
 
 	<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
 
 </head>
 <body>
@@ -58,7 +59,7 @@
 					    	<ol class="breadcrumb">
 					    		<li><a href="index.html">Home</a></li>
 						 		<li><a href="blog.html">Blog</a></li>
-                                <li class="active">Blog-id-1</li>
+                                <li class="active">post-id1</li>
 							</ol>
 					  	</nav>	  
 					</div>
@@ -67,36 +68,44 @@
 			<!-- kết thúc header 12 cột -->
 
 
-            <!-- content 12 cột -->
-            <div class="col-md-12">
-            	<div class="container">
-				    <div class="container">
 
-        <div class="row">
+<!-- menu trái 2 cột, 10 cột content-->
+            <div class="col-md-2">
+                <div class="sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li><a href="#"><i class="icon-edit"></i>Viết Blog</a>
+                        </li>
+                        <li><a href="#"><i class="icon-calendar"></i>Xem lịch</a>
+                        </li>
+                        <li><a href="#"><i class="icon-user"></i>Thành Viên</a>
+                        </li>
+                        <li><a href="#"><i class="icon-comment"></i>Thư viện ảnh</a>
+                        </li>
+                    </ul>
+                 </div>
+            </div>
+            <!-- content 12 cột -->
+            
+
+				  
+
+    
 
             <!-- Blog Post Content Column -->
-            <div class="col-md-12">
+            <div class="col-md-10">
 
                 <!-- đăng  bài blog -->
-
                 <!-- tiêu đề -->
                 <h1>Người phụ nữ ăn lá ngón tự tử vì buồn chuyện gia đình</h1>
-
                 <!-- Tác giả -->
                 <p class="lead"> by <a href="#">Phạm Quốc Toàn</a></p>
-
-                <hr>
-
                 <!-- ngày, giờ -->
                 <p><span class="glyphicon glyphicon-time"></span> <small>April 3, 2017 at 10:30 AM</small></p>
-
-                <hr>
-
+                <p><span class="glyphicon glyphicon-eye-open"></span> <small>120</small></p>
+                <hr><!-- thẻ gạch ngang -->
                 <!-- ảnh minh họa -->
-                <img class="img-responsive" src="#" alt="">
-
-                <hr>
-
+                <img class="style text-center" alt="#" src="img/post-id1-1.jpg">
+                
                 <!-- nội dung bài post -->
                 <p class="lead">Mâu thuẫn chuyện gia đình, chị Mơ một mình vào rừng tìm lá ngón để quyên sinh.Chị được cứu sống nhờ người thân phát hiện kịp thời.</p>
                 <p>Ngày 3/4, ông Bríu Hạnh, Phó trưởng trạm Quân dân Y kết hợp xã A Xan, huyện Tây Giang (Quảng Nam), cho biết vừa cứu sống một phụ nữ người Cơtu tự tử do ăn lá ngón.</p>
@@ -151,23 +160,22 @@
             </div>
 
 
-        </div>
-        <!-- /.row -->
+        
 
         <hr>
 
-            	</div>
-            </div>
+            
+
 
             <!-- footer trái 12 cột -->
             <div class="col-md-12">
                 <div class="container">
 	                <footer>
+                    
 	                	<p class="copyright">2017 Powered By Blue Group, Theme By Bootstrap</p>
 	                </footer>
                 </div>	
-            </div>
-        </div>
+        
     <div>
 </body>
 </html>

@@ -18,6 +18,10 @@ body {
 	margin-top: 10px; 
 	margin-bottom: 10px;
 }
+.style-blog-img {
+	width: 100%;
+	height: 100%;
+}
 .header {
 	background: #333;
 	color: #fff;
