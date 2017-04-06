@@ -17,8 +17,18 @@ body {
 .style-blog-img {
 	width: 100%;
 	height: 100%;
-}
+	/*điền đầy col nó ở*/
 
+	border: 5px solid #ddd;
+	border-radius: 10px;
+}
+.style-post-img {
+	display: block;
+    margin: auto; 
+    /* canh giữa*/
+    width: 70%;
+    border: 5px solid #ddd;
+}
 
 .copyright {
 	position: relative;
@@ -28,43 +38,3 @@ body {
     text-align: center;
     bottom:0;
     }
-/* áp dụng cho màn hình 992px, nav bar ẩn đi và có nút cho phép hiện lại*/
-@media screen and (max-width: 992px)
-{
-	.navbar-header {
-	      float: none;
-	  }
-  .navbar-left,.navbar-right {
-      float: none !important;
-  }
-  .navbar-toggle {
-      display: block;
-  }
-  .navbar-collapse {
-      border-top: 1px solid transparent;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
-  }
-  .navbar-fixed-top {
-      top: 0;
-      border-width: 0 0 1px;
-  }
-  .navbar-collapse.collapse {
-      display: none!important;
-  }
-  .navbar-nav {
-      float: none!important;
-      margin-top: 7.5px;
-  }
-  .navbar-nav>li {
-      float: none;
-  }
-  .navbar-nav>li>a {
-      padding-top: 10px;
-      padding-bottom: 10px;
-  }
-  .collapse.in{
-      display:block !important;
-  }
-}
-
-
