@@ -32,7 +32,7 @@ Yêu cầu **bắt buộc**
 
 Yêu cầu **không bắt buộc**:
 * [ ] Cho phép người dùng đăng nhập, đăng xuất, đăng ký thông tin tài khoản. (**MSSV**)
-* [ ] Có thể xem danh sách các comment của từng bài viết.  (**MSSV**)
+* [x] Có thể xem danh sách các comment của từng bài viết.  (**1412558**)
 * [ ] Cho phép người dùng đã đăng nhập đăng thêm bài viết mới. (**MSSV**)
 * [ ] Cho phép người dùng đã đăng nhập comment cho bài viết. (**MSSV**)
 * [ ] Quản lý thêm thông tin tag cho mỗi bài viết. Mỗi bài viết có thể bao gồm nhiều tag và mỗi tag có thể có nhiều bài viết. (**MSSV**)

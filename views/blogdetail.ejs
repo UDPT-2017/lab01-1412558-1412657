@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1">
+    <!-- đọc cấu hình thiết bị-->
+    <title>Blog</title>
+    <!-- thự viện font icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="/js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <!-- header 12 cột -->
+            <div class="col-md-12">
+
+                        
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="/"> <img class="img-responsive" src="/img/logo-kool.jpg"></a>
+                        </div>
+                        <div class="col-md-6">
+                        <a href="/"> <img class="img-responsive" src="/img/banner-kool.jpg"></a>
+                        </div>
+                    </div>
+                    
+                <header>
+                    <!-- code navbar, menu-->
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="container-fluid">
+
+                            <!--  toggle nav -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
+                                <span class="sr-only">Toggle navigation</span> 
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span> 
+                                <span class="icon-bar"></span> 
+                                </button>
+                                <a class="navbar-brand" href="/">Kool</a> 
+                            </div>
+
+                            
+
+
+
+
+                            <div class="collapse navbar-collapse" id="collapse">
+                                <ul class="nav navbar-nav navbar-left"> <!-- navbar năm bên trái-->
+                                    <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home </a>
+                                    </li>
+                                    <li><a href="/albums"><span class="glyphicon glyphicon-picture"></span> Albums </a>
+                                    </li>
+                                    <li><a href="/about"><span class="glyphicon glyphicon-info-sign"></span> About </a>
+                                    </li>
+                                    <li class="active"><a href="/blog"><span class="glyphicon glyphicon-user"></span> Blog </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--   cho biết đang ở đâu, từ đâu đến-->
+                        <ol class="breadcrumb">
+                            <li><a href="/">Home</a>
+                            </li>
+                            <li class="active">Blog</li>
+                        </ol>
+                    </nav>
+                </header>
+            </div>
+            <!-- end  col-md-12-->
+        </div>
+            <!-- end  row-->    
+
+
+
+
+            <!-- menu trái 3 cột, 9 cột content-->
+
+
+        <div class="row">
+            <div class="col-md-3">
+                <nav class="navbar navbar-default" role="navigation">
+                            <!--  toggle nav -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar">
+                        <span class="sr-only">Toggle navigation</span> 
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        </button>
+                    </div>
+
+                    <div class="navbar-collapse" id="sidebar">
+                        <ul class="nav nav-list">
+                            <li><a href="#"><i class="glyphicon glyphicon-pencil"></i> Viết blog</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-picture"></i> Tạo albums ảnh</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-user"></i> Thành viên</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Xem lịch</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-map-marker"></i> Vị trí</a></li>
+                        </ul>
+                    </div>
+                </nav>  
+            </div>
+            <!-- end col-md-3 -->
+
+
+            <!-- content 9col -->
+            <div class="col-md-9">
+                <!-- post -->
+                <h1><%= blog.subtitle%></h1>
+                <!-- tác giả, ngày, giờ -->
+                <p>
+                    <span class="lead"> By: <a href="#"></a><%= blog.author%></span>
+                    <span class="glyphicon glyphicon-time"></span> <small><%= blog.time%></small>
+                    <span class="glyphicon glyphicon-eye-open"></span> <small><%= blog.view%></small>
+                </p>
+                <hr>
+                <!-- ảnh minh họa -->
+                <img class="style-post-img" alt="" src="/img/<%= blog.img%>">
+                <!-- nội dung bài post -->
+                <p class="lead"><%= blog.subtile%></p>
+                <p><%= blog.content%></p>
+                <hr>
+                <!-- end post  -->
+
+                <!-- Comments Form -->
+                <div class="well">
+                    <h4>Bạn nghĩ gì về điều này!</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="2"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi</button>
+                    </form>
+                </div>
+                <hr>
+                <!-- comment -->
+                <% comment_list.rows.forEach(function(comment)
+                {   %>
+                    <div class="media">
+                        <a class="pull-left" href="#"><img class="media-object" src="/img/<%= comment.avatar%>" alt=""></a>
+                        <div class="media-bodt">
+                            <h4 class="media-heading"><%= comment.author%></h4>
+                            <small><%= comment.time%></small>
+                            <h5><%= comment.content%></h5>
+                        </div>
+                    </div>
+                <%}); %>
+
+            </div> 
+            <!--end container 9col-->
+        </div>
+        <!-- end row -->
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <footer>
+                    <div class="row">
+                        <div class="container">
+                            <div class="text-center">
+                            <ul class="list-inline banner-social-buttons">
+                            <li><a href="https://twitter.com"><i class="fa fa-twitter-square" style="color:blue; font-size:48px"></i></a>
+                            </li>
+                            <li><a href="https://plus.google.com"><i class="fa fa-google-plus-official" style="color:red; font-size:48px"></i> </a>
+                            </li>
+                            <li><a href="https://facebook.com/langtudatinh2060"><i class="fa fa-facebook-official" style="color:blue; font-size:48px"></i></a>
+                            </li>
+                        </ul>
+                        </div>
+                        </div>
+                     </div>
+                          
+                    <div>
+                        <p class="copyright">2017 Powered By Blue Group, Theme By Bootstrap</p>
+                    </div>
+                </footer>
+                <!-- end footer -->
+
+                </div>
+                <!-- end col-md-12 -->
+
+            </div>
+            <!-- end row -->
+
+    </div>
+    <!-- end container -->
+
+</body>
+</html>
