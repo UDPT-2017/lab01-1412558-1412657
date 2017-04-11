@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+         <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1">
+        <!-- đọc cấu hình thiết bị-->
+        <title>Register</title>
+        <!-- thự viện font icon-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/style.css">
+        <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    </head>
+    <body>
+
+        <form method="post" action="" id="form">
+            <div>
+                <h3 class="text-center">ĐĂNG KÍ TÀI KHOẢN</h3>
+            </div>
+            <div class="row">
+                <label for="name">Họ tên: </label>
+                <input type="text" name="name" id="name" placeholder="Your name">
+            </div>
+            <div class="row">
+                <label for="DOB">Ngày sinh: </label>
+                <input type="date" name="date" id="date">
+            </div>
+           <div class="row">
+                <label for="gender">Giới tính: </label>
+                <input type="radio" name="gender" id="gender">Nam
+                <input type="radio" name="gender" id="gender">Nữ
+                <input type="radio" name="gender" id="gender">Khác
+            </div>
+            <div class="row">
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email" placeholder="Email" >
+            </div>
+            <div class="row">
+                <label for="add">Địa chỉ: </label>
+                <input type="text" name="add" id="add" placeholder="Address">
+            </div>
+            <div class="row">
+                <label for="user">Tên đăng nhập: </label>
+                <input type="text" name="user" id="user" placeholder="Username">
+            </div>
+             <div class="row">
+                <label for="pass">Mật khẩu: </label>
+                 <input type="password" name="pass" id="pass" placeholder="Password" >
+            </div>
+            <div class="row">
+                <div class="col-md-offset-4 col-md-6">
+                     <button type="submit" class="btn btn-primary">Đăng kí</button>
+                </div> 
+           </div>
+
+        </form>
+    </body>
+</html>
