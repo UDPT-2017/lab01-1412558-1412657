@@ -118,7 +118,7 @@
                 <h1><%= blog.subtitle%></h1>
                 <!-- tác giả, ngày, giờ -->
                 <p>
-                    <span class="lead"> By: <a href="#"></a><%= blog.author%></span>
+                    <span class="lead"> By: <a href="#"></a><%= blog.nameAuthor%></span>
                     <span class="glyphicon glyphicon-time"></span> <small><%= blog.time%></small>
                     <span class="glyphicon glyphicon-eye-open"></span> <small><%= blog.view%></small>
                 </p>
@@ -146,13 +146,18 @@
                 <% comment_list.rows.forEach(function(comment)
                 {   %>
                     <div class="media">
-                        <a class="pull-left" href="#"><img class="media-object" src="/img/<%= comment.avatar%>" alt=""></a>
+                        <a class="pull-left" href="#">
+                            <img class="media-object" src="/img/<%= comment.avatarAuthor%>" alt="" style="width: 30px; height: 30px">
+                            <h4 class="media-heading"><%= comment.nameAuthor%></h4>
+                        </a>
                         <div class="media-bodt">
-                            <h4 class="media-heading"><%= comment.author%></h4>
-                            <small><%= comment.time%></small>
+                           
+                            
                             <h5><%= comment.content%></h5>
+                            <small><%= comment.time%></small>
                         </div>
                     </div>
+                    <hr>
                 <%}); %>
 
             </div> 
