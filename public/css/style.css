@@ -89,62 +89,19 @@ label {
 	font-weight: bold;
 	line-height: 23px;
 	float: left;
-}
-
+	margin-left: 5px auto; 
+	margin-right: 10px auto;
+	margin-top: 5px auto;
+	margin-bottom: 20px auto;
+	
+} 
 
 
 #form {
-	width: 500px;
+	width:500px;
 	border: 1px solid #fff;
 	background: #ADD8E6;
-	margin: 40px 120px;
-	padding: 10px 0px 0px 50px;
-}
-
-form .row {
-  display: block;
-  padding: 7px 8px;
-  margin-bottom: 7px;
-}
-form input#name {
-	width: 300px;
-	margin-left: 63px;
-}
-form input#date {
-	width: 300px;
-	margin-left: 39px;
-}
-form input#email {
-	width: 300px;
-	margin-left: 69px;
-}
-
-form input#add {
-	width: 300px;
-	margin-left: 62px;
-}
-form input#user {
-	width: 300px;
-	margin-left: 5px;
-}
-form input#pass {
-	width: 300px;
-	margin-left: 46px;
-}
-
-form input#gender {
-	margin-left: 60px;
-}
-
-button {
-	margin: 0 auto;
-}
-
-form input#username1 {
-	width: 400px;
-	margin-left: 5px;
-}
-form input#password1 {
-	width: 400px;
-	margin-left: 5px;
+	margin: 50px auto;
+	padding:20px 0px 20px 50px;
+	text-align: center;
 }
