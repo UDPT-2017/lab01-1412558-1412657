@@ -58,30 +58,52 @@ module.exports = function(passport) {
                 if (err)
                     return done(err);
                 //console.log(rows.rows[0].email);
-                console.log(rows.rows.length);
+                //console.log(rows.rows.length);
                 if (rows.rows.length) {
                     return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
                 } else {
                     // if there is no user with that username
                     // create the user
+
+
+                     
+
+                    //console.log("lỗi zồi");
+
                     var newUser = {
-                        fullname:'1',
-                        email:'1',
-                        phone:'1',
+                        avatar: '',
+                        fullname: req.body.fullname,
+                        email: email,
+                        phone: req.body.phone,
                         pwuser: bcrypt.hashSync(password, null, null),  // use the generateHash function in our user model
-                        avatar: '1'
+                        
                     };
 
+
+
+                    
                     // insert user in database
                     pool.query('INSERT INTO "Users" ("fullname", "phone", "email", "avatar", "pwuser") VALUES ($1,$2,$3,$4,$5)',
                         [newUser.fullname, newUser.phone, newUser.email, newUser.avatar, newUser.pwuser], function (err, rows){
-                        if (err)
-                            return done(err);
-                        if (rows.length) {
+                        
+
+                        if (err){
+                                console.log("lỗi zồi");
+                                return done(err);
+                            }
+                        //if (rows.rows.length) {
                            // return done(null, false, req.flash('signupMessage', 'SignUp Successfully.'));
-                            newUser.id = rows.insertId;
-                            return done(null, newUser);
-                        }
+                            //newUser.id = rows.insertId;
+                            //console.log(newUser.id);
+
+                            //console.log("dk thanh công");
+                            //return done(null, newUser);
+
+                        //}
+                        //newUser.id = rows.insertId;
+                        //console.log(newUser.length);
+                        //console.log(rows.rows.length);
+                        return done(null, newUser);
                     });
                 }
             });
@@ -128,7 +150,7 @@ module.exports = function(passport) {
                     return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
                 }
                 //userr tồn tại.
-                console.log("đang ở đây");
+                //console.log("đang ở đây");
                 // if the user is found but the password is wrong
 
                 if (!bcrypt.compareSync(password, rows.rows[0].pwuser))

@@ -151,3 +151,15 @@ app.get("/about", function (req,res){
 app.get("/albums", function (req,res){
 	res.render("albums.ejs");
 });
+
+
+/*
+                    upload(req, res, function (err) {
+                        if (err) {
+                          // An error occurred when uploading
+                          return
+                        }
+
+                        // Everything went fine
+                        })
+*/

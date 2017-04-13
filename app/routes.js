@@ -7,7 +7,7 @@ module.exports = function(app, passport) {
 	var bcrypt = require('bcrypt-nodejs');
 	app.get('/', function(req, res) {
 		
-		console.log(bcrypt.hashSync(123456, null, null)); 
+		//console.log(bcrypt.hashSync(123456, null, null)); 
 		res.render('index.ejs', {
 			user : req.user // get the user out of session and pass to template
 		}); // load the index.ejs file
@@ -50,7 +50,7 @@ module.exports = function(app, passport) {
 
 	// process the signup form
 	app.post('/signup', passport.authenticate('local-signup', {
-		successRedirect : '/', // redirect to the secure profile section
+		successRedirect : '/login', // redirect to the secure profile section
 		failureRedirect : '/signup', // redirect back to the signup page if there is an error
 		failureFlash : true // allow flash messages
 	}));

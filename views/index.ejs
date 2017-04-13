@@ -19,6 +19,35 @@
 <body>
     <div class="container">
         <div class="row">
+        <div class="col-md-12">
+            <div class="dropdown">
+                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+               
+
+
+<% if (user) { %>
+               
+                <img class="media-object" src="/img/<%= user.avatar%>" alt="avatar" style="width: 30px; height: 30px">
+                <p><%= user.fullname%></p>
+            
+
+                
+            <% } %>
+
+
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <li class="" style="text-align: left"><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất </a></li>
+                        <li class="" style="text-align: left"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập </a></li>
+                        <li class="" style="text-align: left"><a href="/signup"><span class="glyphicon glyphicon-pencil"></span> Đăng ký </a></li>
+                    </ul>
+            </div>
+        </div>
+
+         
+                
+           
+
             <!-- header 12 cột -->
             <div class="col-md-12">
 
@@ -31,7 +60,7 @@
                         <a href="/"> <img class="img-responsive" src="/img/banner-kool.jpg"></a>
                         </div>
                     </div>
-                    
+                
                 <header>
                     <!-- code navbar, menu-->
                     <nav class="navbar navbar-default" role="navigation">
