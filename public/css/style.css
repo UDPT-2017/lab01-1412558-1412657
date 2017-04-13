@@ -85,6 +85,26 @@ body {
 	padding: 5%;
 }
 
+label {
+	font-weight: bold;
+	line-height: 23px;
+	float: left;
+	margin-left: 5px auto; 
+	margin-right: 10px auto;
+	margin-top: 5px auto;
+	margin-bottom: 20px auto;
+	
+} 
+
+
+#form {
+	width:500px;
+	border: 1px solid #fff;
+	background: #ADD8E6;
+	margin: 50px auto;
+	padding:20px 0px 20px 50px;
+	text-align: center;
+}
 
 
 

@@ -14,46 +14,88 @@
         <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
         <script type="text/javascript" src="js/bootstrap.min.js"></script>
     </head>
+    <style>
+        input {
+             border-radius: 4px;
+             margin-bottom: 10px;
+        }
+        form input#name {
+            width: 300px;
+            margin-left: 57px;
+        }
+        form input#date {
+            width: 300px;
+            margin-left: 35px;
+        }
+       
+        form input#add {
+            width: 300px;
+            margin-left: 53px;
+        }
+        form input#email {
+            width: 300px;
+             margin-left: 62px;
+        }
+        form input#user {
+            width: 300px;
+        }
+       
+        form input#pass {
+            width: 300px;
+            margin-left: 39px;
+        }
+        form input#gender {
+            margin-left: 20px;
+        }
+       
+    </style>
     <body>
 
         <form method="post" action="" id="form">
             <div>
                 <h3 class="text-center">ĐĂNG KÍ TÀI KHOẢN</h3>
             </div>
-            <div class="row">
+            <div class="form-group">
                 <label for="name">Họ tên: </label>
                 <input type="text" name="name" id="name" placeholder="Your name">
             </div>
-            <div class="row">
+            <div class="form-group">
                 <label for="DOB">Ngày sinh: </label>
                 <input type="date" name="date" id="date">
             </div>
-           <div class="row">
+           <div class="form-group">
                 <label for="gender">Giới tính: </label>
                 <input type="radio" name="gender" id="gender">Nam
                 <input type="radio" name="gender" id="gender">Nữ
                 <input type="radio" name="gender" id="gender">Khác
             </div>
-            <div class="row">
-                <label for="email">Email: </label>
+            <div class="form-group">
+                <label  for="email">Email: </label>
                 <input type="email" name="email" id="email" placeholder="Email" >
             </div>
-            <div class="row">
+            <div class="form-group">
                 <label for="add">Địa chỉ: </label>
                 <input type="text" name="add" id="add" placeholder="Address">
             </div>
-            <div class="row">
+            <div class="form-group">
                 <label for="user">Tên đăng nhập: </label>
                 <input type="text" name="user" id="user" placeholder="Username">
             </div>
-             <div class="row">
+             <div class="form-group">
                 <label for="pass">Mật khẩu: </label>
                  <input type="password" name="pass" id="pass" placeholder="Password" >
             </div>
             <div class="row">
-                <div class="col-md-offset-4 col-md-6">
-                     <button type="submit" class="btn btn-primary">Đăng kí</button>
-                </div> 
+                <label>
+                    <div class="col-md-9 col-md-offset-12">
+                        <button type="submit" class="btn btn-primary">Đăng kí</button> 
+                    </div>
+                </label>
+                <label>
+                    <div class="col-md-3 col-md-offset-12">
+                        <button type="clear" class="btn btn-primary">Nhập lại</button>
+                    </div>
+                </label>
            </div>
 
         </form>
