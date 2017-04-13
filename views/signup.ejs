@@ -29,66 +29,105 @@
     width: 350px;
     height: 400px;
     margin-top: 10px;
-    background-image: url("../img/background.jpg");
+    background-image: url("../img/background-container.jpg");
     }
     </style>
+
+
+
 </head>
     <body>
-    <div class="container"> 
-        <h1 class="text-center"><i class="fa fa-user-circle"></i></h1> 
-        <div class="form-group"> 
-            <div class="input-group"> 
-                <div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
-                <input class="form-control" placeholder="Full Name: ví dụ Tèo Đập Chai" type="text" id="fullName" name="fullName"> 
-            </div> 
-        </div>
-
-        <div class="form-group"> 
-            <div class="input-group"> 
-                <div class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></div>
-                <input class="form-control" placeholder="Email: ví dụ: bossdiemmaimai@gmail.com" type="text" id="email" name="email"> 
-            </div> 
-        </div>
-
-        <div class="form-group"> 
-            <div class="input-group"> 
-                <div class="input-group-addon"><i class="fa fa-phone fa-fw"></i></div>
-                <input class="form-control" placeholder="Phone: ví dụ: 1234567890" type="text" id="phone" name="phone"> 
-            </div> 
-        </div>
-
-        <div class="form-group"> 
-            <div class="input-group"> 
-                <div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div> 
-                <input class="form-control" placeholder="******" type="password" id="passWord" name="passWord"> 
-            </div> 
-        </div>
-
-        <div class="form-group"> 
-            <div class="input-group"> 
-                <div class="input-group-addon"><i>Avatar</i></div> 
-                <input class="form-control" type="file" id="avatar" name="avatar"> 
-            </div> 
-        </div> 
-        <!-- fa fa-file-photo-o
-        <div class="form-group">
-            <div class="checkbox"> <label for="c1"><input id="c1" name="cc" type="checkbox">Nhớ thông tin</label> 
-            </div> 
-        </div>
-        --> 
-        <div class="form-group"> 
-            <button type="submit" class="btn btn-primary btn-block">SignUp</button> 
-        </div>
-
-        <div class="form-group">
-        
-            <h3>...or login with:</h3>
-            <div class="social-login-buttons">
-                <a class="btn btn-link-1 btn-link-1-facebook" href="#"><i class="fa fa-facebook"></i>Facebook</a>
-                <a class="btn btn-link-1 btn-link-1-google-plus" href="#"><i class="fa fa-google-plus"></i>Google</a>
+    <div class="container">
+        <form action="signup" method="POST" accept-charset="utf-8">
+            <h1 class="text-center"><i class="fa fa-user-circle"></i></h1>
+            <% if (message.length > 0) { %>
+                <div class="alert alert-danger"><%= message %></div>
+            <% } %>
+            <div class="form-group"> 
+                <div class="input-group"> 
+                    <div class="input-group-addon"><i class="fa fa-user fa-fw"></i></div>
+                    <input class="form-control" placeholder="Full Name: ví dụ Tèo Đập Chai" type="text" id="fullname" name="fullname"> 
+                </div> 
             </div>
-        </div>
 
+            <div class="form-group"> 
+                <div class="input-group"> 
+                    <div class="input-group-addon"><i class="fa fa-envelope fa-fw"></i></div>
+                    <input class="form-control" placeholder="Email: ví dụ: bossdiemmaimai@gmail.com" type="text" id="email" name="email"> 
+                </div> 
+            </div>
+
+            <div class="form-group"> 
+                <div class="input-group"> 
+                    <div class="input-group-addon"><i class="fa fa-phone fa-fw"></i></div>
+                    <input class="form-control" placeholder="Phone: ví dụ: 1234567890" type="text" id="phone" name="phone"> 
+                </div> 
+            </div>
+
+            <div class="form-group"> 
+                <div class="input-group"> 
+                    <div class="input-group-addon"><i class="fa fa-key fa-fw"></i></div> 
+                    <input class="form-control" placeholder="******" type="password" id="password" name="password"> 
+                </div> 
+            </div>
+
+            <div class="form-group"> 
+                <div class="input-group"> 
+                    <div class="input-group-addon"><i>Ảnh đại diện</i></div> 
+                    <input class="form-control" type="file" id="avatar" name="avatar">
+                    <div><span id = "status"></span></div>
+                </div> 
+            </div> 
+            <!-- fa fa-file-photo-o
+            <div class="form-group">
+                <div class="checkbox"> <label for="c1"><input id="c1" name="cc" type="checkbox">Nhớ thông tin</label> 
+                </div> 
+            </div>
+            --> 
+            <div class="form-group"> 
+                <button type="submit" class="btn btn-primary btn-block">SignUp</button>
+                <hr> 
+                <p class="text-center"><a href="/Login">LogIn Now!</a></p> 
+            </div>
+
+            <div>
+                
+            </div>
+
+            <div class="form-group">
+            
+                <h3>...or login with:</h3>
+                <div class="social-login-buttons">
+                    <a class="btn btn-link-1 btn-link-1-facebook" href="#"><i class="fa fa-facebook"></i>Facebook</a>
+                    <a class="btn btn-link-1 btn-link-1-google-plus" href="#"><i class="fa fa-google-plus"></i>Google</a>
+                </div>
+            </div>   
+        </form>
     </div>    
     </body>
+
+
+
+    <script>
+  $(document).ready(function() {
+
+     $('#uploadForm').submit(function() {
+         $("#status").empty().text("File is uploading...");
+
+        $(this).ajaxSubmit({
+
+            error: function(xhr) {
+                    status('Error: ' + xhr.status);
+            },
+
+            success: function(response) {
+                    console.log(response)
+                    $("#status").empty().text(response);
+            }
+    });
+
+    return false;
+    });    
+});
+  </script>    
 </html>

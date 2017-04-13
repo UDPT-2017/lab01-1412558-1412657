@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/UDPT-2017/lab01-1412558-1412657/issues"
   },
-  "homepage": "https://github.com/UDPT-2017/lab01-1412558-1412657#readme"
+  "homepage": "https://github.com/UDPT-2017/lab01-1412558-1412657#readme",
+  "dependencies": {
+    "multer": "^1.3.0",
+    "passport-local": "^1.0.0"
+  }
 }
