@@ -19,6 +19,33 @@
 <body>
     <div class="container">
         <div class="row">
+
+            <div class="col-md-12">
+            <% if (user) { %>            
+                <strong>id</strong>: <%= user.id %><br>
+                <strong>name</strong>: <%= user.name %><br>
+             <% } %>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                    <% if (user) { %>
+                        <!-- <strong>FB tokken</strong>: <%= user.facebook_token %><br>
+                        <strong>FB id</strong>: <%= user.facebook_id %><br>
+                        <strong>FB Link</strong>: <%= user.facebook_link %><br>
+                        <strong>email</strong>: <%= user.email %><br>
+                        <strong>phone</strong>: <%= user.phone %><br>
+                        <strong>password</strong>: <%= user.password %><br> -->
+                        <img class="media-object" src="<%= user.avatar %>" alt="no avatar" style="width: 30px; height: 30px">
+                    <% } %>
+
+
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <li class="" style="text-align: left"><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất </a></li>
+                        <li class="" style="text-align: left"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập </a></li>
+                        <li class="" style="text-align: left"><a href="/signup"><span class="glyphicon glyphicon-pencil"></span> Đăng ký </a></li>
+                        </ul>
+                </div>
+            </div>
             <!-- header 12 cột -->
             <div class="col-md-12">
 
@@ -117,7 +144,7 @@
                 <!-- post-preview -->
                 <% blog_list.rows.forEach(function(blog){ %>
                      <div class="post-preview">
-                    <a href="/blog/<%= blog.id%>">
+                    <a href="/blog/detail/id-<%= blog.id%>">
                         <h2 class="post-title">
                             <%= blog.title %>
                         </h2>
