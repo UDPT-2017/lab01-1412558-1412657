@@ -2,6 +2,14 @@
 
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
+var FacebookStrategy = require('passport-facebook').Strategy;
+
+// load up the user model
+var User       = require('../app/models/user');
+
+// load the auth variables
+var configAuth = require('./auth');
+
 
 // load up the user model
 
@@ -18,6 +26,7 @@ var config = {
 };
 const pool = new pg.Pool(config);
 // expose this function to our app using module.exports
+var customKey = null;
 module.exports = function(passport) {
 
     // =========================================================================
@@ -36,6 +45,13 @@ module.exports = function(passport) {
         done(null, user);
     });
 
+
+    // used to deserialize the user
+    passport.deserializeUser(function(id, done) {
+        User.findById(id, function(err, user) {
+            done(err, newUser);
+        });
+    });
     // =========================================================================
     // LOCAL SIGNUP ============================================================
     // =========================================================================
@@ -60,49 +76,27 @@ module.exports = function(passport) {
                 //console.log(rows.rows[0].email);
                 //console.log(rows.rows.length);
                 if (rows.rows.length) {
-                    return done(null, false, req.flash('signupMessage', 'That username is already taken.'));
+                    return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
                 } else {
                     // if there is no user with that username
                     // create the user
 
 
-                     
-
-                    //console.log("lỗi zồi");
-
                     var newUser = {
-                        avatar: '',
-                        fullname: req.body.fullname,
-                        email: email,
-                        phone: req.body.phone,
-                        pwuser: bcrypt.hashSync(password, null, null),  // use the generateHash function in our user model
-                        
+                        avatar : 'img/avatar_user_default.jpg',               
+                        name: req.body.fullname,            
+                        email : email,
+                        phone : req.body.phone,
+                        password: bcrypt.hashSync(password, null, null)  // use the generateHash function in our user model
                     };
 
-
-
-                    
                     // insert user in database
-                    pool.query('INSERT INTO "Users" ("fullname", "phone", "email", "avatar", "pwuser") VALUES ($1,$2,$3,$4,$5)',
-                        [newUser.fullname, newUser.phone, newUser.email, newUser.avatar, newUser.pwuser], function (err, rows){
-                        
-
+                    pool.query('INSERT INTO "Users" ("name", "phone", "email", "avatar", "password", "facebook_token", "facebook_id", "facebook_link") VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',
+                        [newUser.name, newUser.phone, newUser.email, newUser.avatar, newUser.password, '',-1, ''], function (err, rows){
                         if (err){
-                                console.log("lỗi zồi");
+                
                                 return done(err);
                             }
-                        //if (rows.rows.length) {
-                           // return done(null, false, req.flash('signupMessage', 'SignUp Successfully.'));
-                            //newUser.id = rows.insertId;
-                            //console.log(newUser.id);
-
-                            //console.log("dk thanh công");
-                            //return done(null, newUser);
-
-                        //}
-                        //newUser.id = rows.insertId;
-                        //console.log(newUser.length);
-                        //console.log(rows.rows.length);
                         return done(null, newUser);
                     });
                 }
@@ -127,33 +121,16 @@ module.exports = function(passport) {
             passReqToCallback : true // allows us to pass back the entire request to the callback
         },
         function(req, email, password, done) { // callback with email and password from our form
-            //query raw
-            //nó ko hỗ trợ mình một giao thức tính năng gì đó giúp query
-            //query builderr laravel đi.
-            //thay vì query select * from userr
-            //DB::table('User')->get();
-            // một dấu nháy vs 2 dấu nháy đều hiểu là bên trong là chuỗi
-            //nhưng mà nó giúp mình có thể biết và setup được
-            //var user = "'user'" //console => 'user'
-
-            //var user = '"Users"'; //=> "user"
-                pool.query('SELECT * FROM  "Users" WHERE email = ($1)',[email], function(err, rows){
+                pool.query('SELECT * FROM  "Users" WHERE  email = ($1)',[email], function(err, rows){
                 if (err)
                     return done(err);
-                //object
-                //object length == 1
-                //kiểm tra tồn tại userr
-                // Obj chứa Nhiều Obj => chứa nhiều thông tin
-                //console.log(rows.rows[0].email);
-                //console.log(rows.rows.length);
-                if (!rows.rows.length) {
-                    return done(null, false, req.flash('loginMessage', 'No user found.')); // req.flash is the way to set flashdata using connect-flash
+                // email not found
+                 if (!rows.rows.length) {
+                    return done(null, false, req.flash('loginMessage', 'No email found.')); // req.flash is the way to set flashdata using connect-flash
                 }
-                //userr tồn tại.
-                //console.log("đang ở đây");
-                // if the user is found but the password is wrong
 
-                if (!bcrypt.compareSync(password, rows.rows[0].pwuser))
+                // if the user is found but the password is wrong
+                if (!bcrypt.compareSync(password, rows.rows[0].password))
                     return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
 
                 // all is well, return successful user
@@ -161,4 +138,74 @@ module.exports = function(passport) {
             });
         })
     );
+
+
+
+
+
+
+
+    passport.use(new FacebookStrategy({
+
+        // pull in our app id and secret from our auth.js file
+        clientID        : configAuth.facebookAuth.clientID,
+        clientSecret    : configAuth.facebookAuth.clientSecret,
+        callbackURL     : configAuth.facebookAuth.callbackURL,
+        profileFields   : ['id', 'emails', 'name','profileUrl','photos'] //get field recall
+    },
+
+
+
+    //console.log("route 197");
+    // facebook will send back the token and profile
+    function(token, refreshToken, profile, done) {
+
+        // asynchronous
+       // console.log("route 202");
+        process.nextTick(function() {
+
+            // find the user in the database based on their facebook id
+           // console.log("route 206");
+
+            pool.query('SELECT * FROM "Users" WHERE "facebook_id" = ($1)',[profile.id], function(err, rows) {
+                if (err)
+                    return done(err);
+                if (rows.rows.length) {
+                     return done(null,  rows.rows[0]);
+                } else {
+                    // if there is no user with that username
+                    // create the user
+                     var newUser = new User();
+                    // // set all of the facebook information in our user model
+                    newUser.id    = profile.id; // set the users facebook id                   
+                    newUser.facebook.token = token; // we will save the token that facebook provides to the user                    
+                    newUser.name  = profile.name.givenName + ' ' + profile.name.familyName; // look at the passport user profile to see how names are returned
+                    newUser.email = profile.emails[0].value; // facebook can return multiple emails so we'll take the first
+                    newUser.avatar = profile.photos[0].value;
+                    newUser.facebook.linkFB = profile.profileUrl;
+                    // //nó sẽ bị lỗi chỗ name nay, email nay vì ssao, nó ghi xún trắng
+                    // console.log(newUser);
+                    //console.log(profile);
+                    // insert user in database
+                   // console.log(newUser.name);
+                    pool.query('INSERT INTO "Users" ("facebook_id", "facebook_token", "name", "email", "avatar", "facebook_link") VALUES ($1,$2,$3,$4,$5,$6)',
+                        [profile.id, newUser.facebook.token, newUser.name, newUser.email, newUser.avatar, newUser.facebook.linkFB], function (err, rows){
+                        if (err){
+                               // console.log("lỗi zồi");
+                                return done(err);
+                            }
+                        return done(null, newUser);
+                    });
+
+                    newUser.save(function(err){
+                        if(err)
+                            throw err;
+                        return done(null, newUser);
+                    })
+                }
+            });
+        });
+       // console.log("route 244");
+
+    }));
 };
