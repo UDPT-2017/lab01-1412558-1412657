@@ -134,7 +134,8 @@ app.get("/blog/:id", function (req,res){
 
 						    res.render("blogdetail.ejs", {
 						    	blog : result.rows[0], 
-						    	comment_list : rb
+						    	comment_list : rb,
+						    	user: user
 						    });
 						    }); //end client  
 			   		}); //end client

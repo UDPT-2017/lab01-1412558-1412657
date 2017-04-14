@@ -1,5 +1,17 @@
 // config/passport.js
 
+
+// nodemailer
+var nodemailer=require('nodemailer');
+var transporter = nodemailer.createTransport('smtp://kool.milk.tea%40gmail.com:Thienduongvangem@smtp.gmail.com');
+
+
+
+
+
+
+
+
 // load all the things we need
 var LocalStrategy   = require('passport-local').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
@@ -97,6 +109,30 @@ module.exports = function(passport) {
                 
                                 return done(err);
                             }
+
+
+                                var mailOptions = {
+                                    from: '"Yuma Kuga"',
+                                    to: newUser.email,
+                                    subject: 'Welcome to kool milk tea',
+                                    text: 'Hi, We inform you for this email was used to register account  at kool.milk.tea. Wish you a good day'
+                                };
+
+                                transporter.sendMail(mailOptions, function(error, info)
+                                {
+                                    if(error)
+                                    {
+                                        console.log(error);
+                                    }
+                                    else
+                                    {
+                                        console.log('Message sent: ' + info.response);
+                                    };
+                                });
+
+
+
+                            ////////// send mail //////////
                         return done(null, newUser);
                     });
                 }
@@ -134,6 +170,26 @@ module.exports = function(passport) {
                     return done(null, false, req.flash('loginMessage', 'Oops! Wrong password.')); // create the loginMessage and save it to session as flashdata
 
                 // all is well, return successful user
+
+                var mailOptions = {
+                    from: '"Yuma Kuga"',
+                    to: rows.rows.email,
+                    subject: 'Welcome to kool milk tea',
+                    text: 'Hi, We inform you for this email was logged at kool.milk.tea. Wish you a good day'
+                };
+
+                transporter.sendMail(mailOptions, function(error, info)
+                {
+                    if(error)
+                    {
+                        console.log(error);
+                    }
+                    else
+                    {
+                        console.log('Message sent: ' + info.response);
+                    };
+                });
+
                 return done(null, rows.rows[0]);
             });
         })
@@ -171,7 +227,27 @@ module.exports = function(passport) {
                 if (err)
                     return done(err);
                 if (rows.rows.length) {
-                     return done(null,  rows.rows[0]);
+
+                    var mailOptions = {
+                        from: '"Yuma Kuga"',
+                        to: rows.rows[0].email,
+                        subject: 'Welcome to kool milk tea',
+                        text: 'Hi, We inform you for this email was logged at kool.milk.tea. Wish you a good day'
+                    };
+
+                    transporter.sendMail(mailOptions, function(error, info)
+                    {
+                        if(error)
+                        {
+                            console.log(error);
+                        }
+                        else
+                        {
+                            console.log('Message sent: ' + info.response);
+                        };
+                    });
+
+                    return done(null,  rows.rows[0]);
                 } else {
                     // if there is no user with that username
                     // create the user
@@ -194,14 +270,28 @@ module.exports = function(passport) {
                                // console.log("lỗi zồi");
                                 return done(err);
                             }
+
+
+                        var mailOptions = {
+                            from: '"Yuma Kuga"',
+                            to: rows.rows.email,
+                            subject: 'Welcome to kool milk tea',
+                            text: 'Hi, We inform you for this email was logged at kool.milk.tea. Wish you a good day'
+                        };
+
+                        transporter.sendMail(mailOptions, function(error, info)
+                        {
+                            if(error)
+                            {
+                                console.log(error);
+                            }
+                            else
+                            {
+                                console.log('Message sent: ' + info.response);
+                            };
+                        });
                         return done(null, newUser);
                     });
-
-                    newUser.save(function(err){
-                        if(err)
-                            throw err;
-                        return done(null, newUser);
-                    })
                 }
             });
         });
