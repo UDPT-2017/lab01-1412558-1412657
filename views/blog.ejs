@@ -128,7 +128,7 @@
                     <div class="navbar-collapse" id="sidebar">
                         <ul class="nav nav-list">
                             <li><a href="#"><i class="glyphicon glyphicon-pencil"></i> Viết blog</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-picture"></i> Tạo albums</a></li>
+                            <li><a href="/albums/add"><i class="glyphicon glyphicon-picture"></i> Tạo albums</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-user"></i> Thành viên</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Xem lịch</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-map-marker"></i> Vị trí</a></li>
@@ -144,7 +144,7 @@
                 <!-- post-preview -->
                 <% blog_list.rows.forEach(function(blog){ %>
                      <div class="post-preview">
-                    <a href="/blog/detail/id-<%= blog.id%>">
+                    <a href="/blog/detail/id=<%= blog.id%>">
                         <h2 class="post-title">
                             <%= blog.title %>
                         </h2>

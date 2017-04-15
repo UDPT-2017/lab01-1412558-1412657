@@ -17,15 +17,10 @@
         <div class="row">
 
         	<div class="col-md-12">
-            <% if (user) { %>            
-                <strong>id</strong>: <%= user.id %><br>
-                <strong>name</strong>: <%= user.name %><br>
-             <% } %>
+            
             <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-                    <% if (user) { %>
-                        <img class="media-object" src="<%= user.avatar %>" alt="no avatar" style="width: 30px; height: 30px">
-                    <% } %>
+                   
 
 
                     <span class="caret"></span></button>
@@ -40,10 +35,10 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="/"> <img class="img-responsive" src="img/logo-kool.jpg"></a>
+                        <a href="index.html"> <img class="img-responsive" src="img/logo-kool.jpg"></a>
                     </div>
                     <div class="col-md-6">
-                        <a href="/"> <img class="img-responsive" src="img/banner-kool.jpg"></a>
+                        <a href="index.html"> <img class="img-responsive" src="img/banner-kool.jpg"></a>
                     </div>
                 </div>
 				
@@ -52,7 +47,6 @@
 
 
 				
-			
                 <header>
                     <!-- code navbar, menu-->
                     <nav class="navbar navbar-default" role="navigation">
@@ -70,13 +64,13 @@
                             </div>
                             <div class="collapse navbar-collapse" id="collapse">
                                 <ul class="nav navbar-nav navbar-left"> <!-- navbar năm bên trái-->
-                                    <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home </a>
+                                    <li><a href="index.html"><span class="glyphicon glyphicon-home"></span> Home </a>
                                     </li>
-                                    <li class="active"><a href="/albums"><span class="glyphicon glyphicon-picture"></span> Albums </a>
+                                    <li class="active"><a href="albums.html"><span class="glyphicon glyphicon-picture"></span> Albums </a>
                                     </li>
-                                    <li><a href="/about"><span class="glyphicon glyphicon-info-sign"></span> About </a>
+                                    <li><a href="about.html"><span class="glyphicon glyphicon-info-sign"></span> About </a>
                                     </li>
-                                    <li><a href="/blog"><span class="glyphicon glyphicon-user"></span> Blog </a>
+                                    <li><a href="blog.html"><span class="glyphicon glyphicon-user"></span> Blog </a>
                                     </li>
                                 </ul>
                             </div>
@@ -84,7 +78,7 @@
                         </div>
                         <!--   cho biết đang ở đâu, từ đâu đến-->
                         <ol class="breadcrumb">
-                            <li><a href="/">Home</a>
+                            <li><a href="index.html">Home</a>
                             </li>
                             <li class="active">Albums</li>
                         </ol>
@@ -110,7 +104,7 @@
                     <div class="navbar-collapse" id="sidebar">
                         <ul class="nav nav-list">
                             <li><a href="#"><i class="glyphicon glyphicon-pencil"></i> Viết blog</a></li>
-                            <li><a href="/albums/add"><i class="glyphicon glyphicon-picture"></i> Tạo albums</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-picture"></i> Tạo albums</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-user"></i> Thành viên</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Xem lịch</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-map-marker"></i> Vị trí</a></li>
@@ -121,19 +115,39 @@
 			<!--end col-md-3->
 			<!-content -->
 			<div class="col-md-10">
-				<h1 class="text-center">DANH SÁCH CÁC ALBUM</h1>
+				<h1 class="text-center">TẠO ALBUMS</h1>
 				<div class="row">
-                    <% albums_list.rows.forEach(function(albums){ %>
-                        <div class="col-md-4 col-sm-6 col-xs-6">
-                        <div class="albums-cover">
-                            <a title="" href="/albums/detail/id=<%= albums.id%>"><img class="thumbnail img-responsive" src="<%= albums.img_cover%>"></a>
+
+
+
+					<form action="add" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
+                            <h1 class="text-center"><i class="fa fa-user-circle"></i></h1>
+                            
+
+                            <div class="form-group"> 
+                                <label for="">Chủ đề albums</label>
+                                <input class="form-control" placeholder="" type="text" id="topic" name="topic"> 
+                       
                             </div>
-                        <h4> <%= albums.topic%> </h4>
-                        <small> BY <%= albums.name_creator%> </small>
-                        <%= albums.total_view%>
-                        <span class="glyphicon glyphicon-eye-open"></span><hr>
-                    </div>
-                <% }); %>
+                            <div class="form-group"> 
+                                <label for="">Ảnh cover</label>
+                                <input class="form-control" type="file" id="uploadCover" name="uploadCover"> 
+                            </div>
+
+                            <div class="form-group"> 
+                                <label for="">Danh sách ảnh</label>
+                                <input class="form-control" type="file" id="uploadListImg" name="uploadListImg" multiple="multiple"> 
+                            </div>
+
+                            <div class="form-group"> 
+                                <button type="submit" class="btn btn-primary btn-block">Tạo Albums</button> 
+                                <hr> 
+                            </div>
+                        </form>
+
+
+				</div>
+
 				<!-- end row -->
 
 

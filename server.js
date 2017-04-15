@@ -62,8 +62,6 @@ console.log('The magic happens on port ' + port);
 
 
 
-
-var urlencodedParser = bodyParser.urlencoded({ extended: false });
 var multer = require('multer');
 
 var storage = multer.diskStorage({
@@ -74,7 +72,25 @@ var storage = multer.diskStorage({
     callback(null, Date.now() + '-' + file.originalname);
   }
 });
-var upload = multer({ storage : storage}).single('avatar');
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var upload = multer({ storage : storage}).array('uploadPhotos',100);
+
+
+
+app.post("/albums/add",urlencodedParser, function (req,res) {
+  //,urlencodedParser
+    console.log("gọi upload");
+    console.log(req.body);
+
+    //var uploadPhotos = multer({ storage : storage}).array('photos',20);
+    upload(req, res, function (err) {
+      if (err) {
+        res.send("upload xảy ra lỗi");
+      }
+
+      res.redirect('/albums');
+    })
+  });
 
 
 

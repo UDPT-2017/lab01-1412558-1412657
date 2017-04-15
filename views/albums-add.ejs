@@ -6,32 +6,21 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"> <!-- đọc cấu hình thiết bị-->
 	<title>Albums</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="css/style.css">
-	<script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="/css/style.css">
+	<script type="text/javascript" src="/js/jquery-3.2.0.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="container">
         <div class="row">
 
         	<div class="col-md-12">
-            <% if (user) { %>            
-                <strong>id</strong>: <%= user.id %><br>
-                <strong>name</strong>: <%= user.name %><br>
-             <% } %>
+            
             <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
-                    <% if (user) { %>
-                        <!-- <strong>FB tokken</strong>: <%= user.facebook_token %><br>
-                        <strong>FB id</strong>: <%= user.facebook_id %><br>
-                        <strong>FB Link</strong>: <%= user.facebook_link %><br>
-                        <strong>email</strong>: <%= user.email %><br>
-                        <strong>phone</strong>: <%= user.phone %><br>
-                        <strong>password</strong>: <%= user.password %><br> -->
-                        <img class="media-object" src="<%= user.avatar %>" alt="no avatar" style="width: 30px; height: 30px">
-                    <% } %>
+                   
 
 
                     <span class="caret"></span></button>
@@ -46,10 +35,10 @@
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-6">
-                        <a href="index.html"> <img class="img-responsive" src="img/logo-kool.jpg"></a>
+                        <a href="/"> <img class="img-responsive" src="/img/logo-kool.jpg"></a>
                     </div>
                     <div class="col-md-6">
-                        <a href="index.html"> <img class="img-responsive" src="img/banner-kool.jpg"></a>
+                        <a href="/"> <img class="img-responsive" src="/img/banner-kool.jpg"></a>
                     </div>
                 </div>
 				
@@ -58,7 +47,6 @@
 
 
 				
-			
                 <header>
                     <!-- code navbar, menu-->
                     <nav class="navbar navbar-default" role="navigation">
@@ -78,7 +66,7 @@
                                 <ul class="nav navbar-nav navbar-left"> <!-- navbar năm bên trái-->
                                     <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home </a>
                                     </li>
-                                    <li class="active"><a href="/albums"><span class="glyphicon glyphicon-picture"></span> Albums </a>
+                                    <li class="active"><a href="albums.html"><span class="glyphicon glyphicon-picture"></span> Albums </a>
                                     </li>
                                     <li><a href="/about"><span class="glyphicon glyphicon-info-sign"></span> About </a>
                                     </li>
@@ -90,7 +78,7 @@
                         </div>
                         <!--   cho biết đang ở đâu, từ đâu đến-->
                         <ol class="breadcrumb">
-                            <li><a href="/">Home</a>
+                            <li><a href="index.html">Home</a>
                             </li>
                             <li class="active">Albums</li>
                         </ol>
@@ -116,7 +104,7 @@
                     <div class="navbar-collapse" id="sidebar">
                         <ul class="nav nav-list">
                             <li><a href="#"><i class="glyphicon glyphicon-pencil"></i> Viết blog</a></li>
-                            <li><a href="#"><i class="glyphicon glyphicon-picture"></i> Tạo albums</a></li>
+                            <li><a href="/albums/add"><i class="glyphicon glyphicon-picture"></i> Tạo albums</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-user"></i> Thành viên</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Xem lịch</a></li>
                             <li><a href="#"><i class="glyphicon glyphicon-map-marker"></i> Vị trí</a></li>
@@ -127,72 +115,38 @@
 			<!--end col-md-3->
 			<!-content -->
 			<div class="col-md-10">
-				<h1 class="text-center">DANH SÁCH CÁC ALBUM</h1>
+				<h1 class="text-center">TẠO ALBUMS</h1>
 				<div class="row">
 
 
+                <div class="col-md-4 col-sm-12 col-xs-12"></div>
+					<div class="col-md-4 col-sm-12 col-xs-12">
+                    <div class="well">
+                        <form action="" method="POST" accept-charset="utf-8" enctype="multipart/form-data">
+                            <div class="form-group"> 
+                                <label for="">Chủ đề albums</label>
+                                <input class="form-control" placeholder="" type="text" id="imgtopic" name="imgtopic"> 
+                       
+                            </div>
 
-					<div class="col-md-4 col-sm-6 col-xs-6">
-						<div class="albums-cover">
-							<a title="Image 1" href="#"><img class="thumbnail img-responsive" src="img/img-05.jpg"></a>
-							</div>
-						<h4> Xã Hội </h4>
-						<small> day là ji</small> <span class="glyphicon glyphicon-eye-open"></span><hr>
-					</div>
+                            <div class="form-group"> 
+                                <label for="">Danh sách ảnh</label>
+                                <input class="form-control" type="file" id="uploadPhotos" name="uploadPhotos" multiple> 
+                            </div>
 
-					<div class="col-md-4 col-sm-6 col-xs-6">
-						<div class="albums-cover">
-							<a title="Image 1" href="#"><img class="thumbnail img-responsive" src="img/img-05.jpg"></a>
-							
-							</div>
-							<h4> Xã Hội </h4>
-							<small> day là ji</small> <span class="glyphicon glyphicon-eye-open"></span><hr>
-						
-					</div>
 
-					<div class="col-md-4 col-sm-6 col-xs-6">
-						<div class="albums-cover">
-							<a title="Image 1" href="#"><img class="thumbnail img-responsive" src="img/img-06.jpg"></a>
-							</div>
-							<h4> Xã Hội </h4>
-							<small> day là ji</small> <span class="glyphicon glyphicon-eye-open"></span><hr>
-						
-					</div>
-
-					<div class="col-md-4 col-sm-6 col-xs-6">
-						<div class="albums-cover">
-							<a title="Image 1" href="#"><img class="thumbnail img-responsive" src="img/img-07.jpg"></a>
-							</div>
-							<h4> Xã Hội </h4>
-							<small> day là ji</small> <span class="glyphicon glyphicon-eye-open"></span><hr>
-						
-					</div>
-
-					<div class="col-md-4 col-sm-6 col-xs-6">
-						<div class="albums-cover">
-							<a title="Image 1" href="#"><img class="thumbnail img-responsive" src="img/img-08.jpg"></a>
-						</div>
-						<h4> Xã Hội </h4>
-						<small> day là ji</small> <span class="glyphicon glyphicon-eye-open"></span><hr>
-					</div>
-
-					<div class="col-md-4 col-sm-6 col-xs-6">
-						<div class="albums-cover">
-							<a title="Image 1" href="#"><img class="thumbnail img-responsive" src="img/img-09.jpg"></a>
-							</div>
-						<h4> Xã Hội </h4>
-						<small> day là ji</small> <span class="glyphicon glyphicon-eye-open">dd</span><hr>
-					</div>
-
-					<div class="col-md-4 col-sm-6 col-xs-12">
-						<div class="albums-cover">
-							<a title="Image 1" href="#"><img class="thumbnail img-responsive" src="img/img-15.jpg"></a>
-						</div>
-
-						<h4> Xã Hội </h4>
-						<small> day là ji</small> <span class="glyphicon glyphicon-eye-open"></span><hr>
-					</div>
-
+                            <div class="input-group"> 
+                    <div class="input-group-addon"><i class="fa fa-phone fa-fw"></i></div>
+                    <input class="form-control" placeholder="Phone: ví dụ: 1234567890" type="text" id="phone" name="phone"> 
+                </div> 
+                            <div class="form-group"> 
+                                <button type="submit" class="btn btn-primary btn-block">Tạo Albums</button> 
+                                <hr> 
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                    <div class="col-md-4 col-sm-12 col-xs-12"></div>
 
 				</div>
 

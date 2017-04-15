@@ -73,7 +73,7 @@ body {
 @media screen and (max-width:  400px) {
 	.albums-cover {
 	padding: 10px;
-	height: 70px;
+	height: 100px;
 	border: 1px solid #fff;
 	margin-top: 10px
 	}

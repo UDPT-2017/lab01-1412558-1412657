@@ -1,56 +1,215 @@
 <!-- views/profile.ejs -->
-<!doctype html>
+<!DOCTYPE html>
 <html>
+
 <head>
-    <title>Node Authentication</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <style>
-        body        { padding-top:80px; word-wrap:break-word; }
-    </style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1">
+    <!-- đọc cấu hình thiết bị-->
+    <title>Blog</title>
+    <!-- thự viện font icon-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="text/javascript" src="/js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </head>
+
 <body>
-<div class="container">
+    <div class="container">
+        <div class="row">
 
-    <div class="page-header text-center">
-        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
-        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
-    </div>
-
-    <div class="row">
-
-        <!-- LOCAL INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3><span class="fa fa-user"></span> Local</h3>
-
-                    <p>
-                        <strong>id</strong>: <%= user.id %><br>
-                        <strong>name</strong>: <%= user.name %><br>
-                        <strong>email</strong>: <%= user.email %><br>
-                        <strong>phone</strong>: <%= user.phone %><br>
-                        <strong>password</strong>: <%= user.pwuser %><br>
-                        <img class="media-object" src="<%= user.avatar %>" alt="no avatar" style="width: 30px; height: 30px">
-                        <strong>FB tokken</strong>: <%= user.facebook_token %><br>
+            <div class="col-md-12">
+            <% if (user) { %>            
+                <strong>id</strong>: <%= user.id %><br>
+                <strong>name</strong>: <%= user.name %><br>
+             <% } %>
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
+                    <% if (user) { %>
+                        <!-- <strong>FB tokken</strong>: <%= user.facebook_token %><br>
                         <strong>FB id</strong>: <%= user.facebook_id %><br>
                         <strong>FB Link</strong>: <%= user.facebook_link %><br>
-                    </p>
+                        <strong>email</strong>: <%= user.email %><br>
+                        <strong>phone</strong>: <%= user.phone %><br>
+                        <strong>password</strong>: <%= user.password %><br> -->
+                        <img class="media-object" src="<%= user.avatar %>" alt="no avatar" style="width: 30px; height: 30px">
+                    <% } %>
+
+
+                    <span class="caret"></span></button>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <li class="" style="text-align: left"><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất </a></li>
+                        <li class="" style="text-align: left"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập </a></li>
+                        <li class="" style="text-align: left"><a href="/signup"><span class="glyphicon glyphicon-pencil"></span> Đăng ký </a></li>
+                        </ul>
+                </div>
+            </div>
+            <!-- header 12 cột -->
+            <div class="col-md-12">
+
+                        
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="/"> <img class="img-responsive" src="/img/logo-kool.jpg"></a>
+                        </div>
+                        <div class="col-md-6">
+                        <a href="/"> <img class="img-responsive" src="/img/banner-kool.jpg"></a>
+                        </div>
+                    </div>
+                    
+                <header>
+                    <!-- code navbar, menu-->
+                    <nav class="navbar navbar-default" role="navigation">
+                        <div class="container-fluid">
+
+                            <!--  toggle nav -->
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
+                                <span class="sr-only">Toggle navigation</span> 
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span> 
+                                <span class="icon-bar"></span> 
+                                </button>
+                                <a class="navbar-brand" href="/">Kool</a> 
+                            </div>
+
+                            
+
+
+
+
+                            <div class="collapse navbar-collapse" id="collapse">
+                                <ul class="nav navbar-nav navbar-left"> <!-- navbar năm bên trái-->
+                                    <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home </a>
+                                    </li>
+                                    <li><a href="/albums"><span class="glyphicon glyphicon-picture"></span> Albums </a>
+                                    </li>
+                                    <li><a href="/about"><span class="glyphicon glyphicon-info-sign"></span> About </a>
+                                    </li>
+                                    <li class="active"><a href="/blog"><span class="glyphicon glyphicon-user"></span> Blog </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--   cho biết đang ở đâu, từ đâu đến-->
+                        <ol class="breadcrumb">
+                            <li><a href="/">Home</a>
+                            </li>
+                            <li class="active">Blog</li>
+                        </ol>
+                    </nav>
+                </header>
+            </div>
+            <!-- end  col-md-12-->
+        </div>
+            <!-- end  row-->    
+
+
+
+
+            <!-- menu trái 2 cột, 10 cột content-->
+
+
+        <div class="row">
+            <div class="col-md-2">
+                <nav class="navbar navbar-default" role="navigation">
+                            <!--  toggle nav -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#sidebar">
+                        <span class="sr-only">Toggle navigation</span> 
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span> 
+                        <span class="icon-bar"></span> 
+                        </button>
+                    </div>
+
+                    <div class="navbar-collapse" id="sidebar">
+                        <ul class="nav nav-list">
+                            <li><a href="#"><i class="glyphicon glyphicon-pencil"></i> Viết blog</a></li>
+                            <li><a href="/albums/add"><i class="glyphicon glyphicon-picture"></i> Tạo albums</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-user"></i> Thành viên</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-calendar"></i> Xem lịch</a></li>
+                            <li><a href="#"><i class="glyphicon glyphicon-map-marker"></i> Vị trí</a></li>
+                        </ul>
+                    </div>
+                </nav>  
+            </div>
+            <!-- end col-md-2 -->
+
+
+            <!-- content 10col -->
+            <div class="col-md-10">
+               
+                
+               <% if (user) { %>  
+
+                    <div class="page-header text-center">
+                        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+                        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="well">
+                                <h3><span class="fa fa-user"></span></h3>
+                                    <p>
+                                        <strong>id</strong>: <%= user.id %><br>
+                                        <strong>name</strong>: <%= user.name %><br>
+                                        <strong>email</strong>: <%= user.email %><br>
+                                        <strong>phone</strong>: <%= user.phone %><br>
+                                        <strong>password</strong>: <%= user.pwuser %><br>
+                                        <strong>avatar</strong>: <img class="media-object" src="<%= user.avatar %>" alt="no avatar" style="width: 30px; height: 30px"><br>
+                                        <strong>FB tokken</strong>: <%= user.facebook_token %><br>
+                                        <strong>FB id</strong>: <%= user.facebook_id %><br>
+                                        <strong>FB Link</strong>: <%= user.facebook_link %><br>
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+             <% } %>
+
+
+            </div> 
+            <!--end content 10col-->
+        </div>
+        <!-- end row -->
+
+
+            <div class="row">
+                <div class="col-md-12">
+                    <footer>
+                    <div class="row">
+                        <div class="container">
+                            <div class="text-center">
+                            <ul class="list-inline banner-social-buttons">
+                            <li><a href="https://twitter.com"><i class="fa fa-twitter-square" style="color:blue; font-size:48px"></i></a>
+                            </li>
+                            <li><a href="https://plus.google.com"><i class="fa fa-google-plus-official" style="color:red; font-size:48px"></i> </a>
+                            </li>
+                            <li><a href="https://facebook.com/langtudatinh2060"><i class="fa fa-facebook-official" style="color:blue; font-size:48px"></i></a>
+                            </li>
+                        </ul>
+                        </div>
+                        </div>
+                     </div>
+                          
+                    <div>
+                        <p class="copyright">2017 Powered By Blue Group, Theme By Bootstrap</p>
+                    </div>
+                </footer>
+                <!-- end footer -->
+
+                </div>
+                <!-- end col-md-12 -->
 
             </div>
-        </div>
-
-        <!-- FACEBOOK INFORMATION -->
-        <div class="col-sm-6">
-            <div class="well">
-                <h3 class="text-primary"><span class="fa fa-facebook"></span> Facebook</h3>
-
-
-
-            </div>
-        </div>
+            <!-- end row -->
 
     </div>
+    <!-- end container -->
 
-</div>
 </body>
 </html>
