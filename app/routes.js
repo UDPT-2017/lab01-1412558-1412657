@@ -232,7 +232,7 @@ module.exports = function(app, passport) {
 		        };
 		    });
 			// reload page
-			var link='/blog/detail/id-'+idBlog;
+			var link='/blog/detail/id='+idBlog;
 			res.redirect(link);
 		}
 	});

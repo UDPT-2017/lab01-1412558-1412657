@@ -95,7 +95,7 @@ module.exports = function(passport) {
 
 
                     var newUser = {
-                        avatar : 'img/avatar_user_default.jpg',               
+                        avatar : '/img/avatar_user_default.jpg',               
                         name: req.body.fullname,            
                         email : email,
                         phone : req.body.phone,

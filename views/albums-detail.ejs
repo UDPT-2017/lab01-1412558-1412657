@@ -127,14 +127,18 @@
 
                      <% photos_list.rows.forEach(function(photos){ %>
                         <div class="col-md-4 col-sm-6 col-xs-6">
-                        <div class="albums-cover">
-                            <a title="" href="/albums/<%= photos.id_albums%>/photo/id=<%= photos.id%>"><img class="thumbnail img-responsive" src="<%= photos.img%>"></a>
+                            <div class="albums-cover">
+                                <a title="" href="/albums/<%= photos.id_albums%>/photo/id=<%= photos.id%>"><img class="thumbnail img-responsive" src="<%= photos.img%>"></a>
+                            </div>
+                            <!-- <h4> <%= photos.topic%> </h4> -->
+                            <div style="word-wrap:break-word"> 
+                                BY <%= photos.name_creator%>
+                                    
+                            </div>
+                            <div style="word-wrap:break-word"><%= photos.view%>
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                            </div>
                         </div>
-                        <!-- <h4> <%= photos.topic%> </h4> -->
-                         <small> BY <%= photos.name_creator%> </small>
-                        <%= photos.view%>
-                        <span class="glyphicon glyphicon-eye-open"></span><hr>
-                    </div>
                 <% }); %>
 
 

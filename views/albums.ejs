@@ -129,9 +129,9 @@
                             <a title="" href="/albums/detail/id=<%= albums.id%>"><img class="thumbnail img-responsive" src="<%= albums.img_cover%>"></a>
                             </div>
                         <h4> <%= albums.topic%> </h4>
-                        <small> BY <%= albums.name_creator%> </small>
-                        <%= albums.total_view%>
-                        <span class="glyphicon glyphicon-eye-open"></span><hr>
+                        <div style="word-wrap:break-word"> BY <%= albums.name_creator%> </div>
+                       <div style="word-wrap:break-word"><%= albums.total_view%><span class="glyphicon glyphicon-eye-open"></span></div>
+                       <hr>
                     </div>
                 <% }); %>
 				<!-- end row -->

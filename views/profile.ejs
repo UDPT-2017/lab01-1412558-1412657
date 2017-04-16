@@ -142,7 +142,8 @@
 
             <!-- content 10col -->
             <div class="col-md-10">
-               
+                <div class="row">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
                 
                <% if (user) { %>  
 
@@ -152,26 +153,49 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-md-12 col-xs-12 col-sm-12">
                             <div class="well">
-                                <h3><span class="fa fa-user"></span></h3>
-                                    <p>
-                                        <strong>id</strong>: <%= user.id %><br>
-                                        <strong>name</strong>: <%= user.name %><br>
-                                        <strong>email</strong>: <%= user.email %><br>
-                                        <strong>phone</strong>: <%= user.phone %><br>
-                                        <strong>password</strong>: <%= user.pwuser %><br>
-                                        <strong>avatar</strong>: <img class="media-object" src="<%= user.avatar %>" alt="no avatar" style="width: 30px; height: 30px"><br>
-                                        <strong>FB tokken</strong>: <%= user.facebook_token %><br>
-                                        <strong>FB id</strong>: <%= user.facebook_id %><br>
-                                        <strong>FB Link</strong>: <%= user.facebook_link %><br>
-                                    </p>
+                                <h3><img class="" src="<%= user.avatar %>" alt="no avatar" style="width: 70px; height: 70px"></h3>
+                                  
+                                    <div style="word-wrap:break-word">
+                                        <strong>id</strong>: <%= user.id %>
+                                    </div>
+
+                                    <div style="word-wrap:break-word">
+                                        <strong>name</strong>: <%= user.name %>
+                                    </div>
+
+                                    <div style="word-wrap:break-word">
+                                        <strong>email</strong>: <%= user.email %>
+                                    </div>
+
+                                    <div style="word-wrap:break-word">
+                                        <strong>phone</strong>: <%= user.phone %>
+                                    </div>
+                                        
+                                    <div style="word-wrap:break-word">
+                                        <strong>password</strong>: <%= user.pwuser %>
+                                    </div>
+
+                                    <div style="word-wrap:break-word">
+                                        <strong >FB tokken</strong>: <%= user.facebook_token %>
+                                    </div>
+
+                                    <div style="word-wrap:break-word">
+                                        <strong>FB id</strong>: <%= user.facebook_id %>
+                                    </div>
+
+                                    <div style="word-wrap:break-word">
+                                        <strong>FB Link</strong>:<%= user.facebook_link %>
+                                    </div>
+                                 
                             </div>
                         </div>
                     </div>
              <% } %>
 
-
+               </div>
+                    </div>
             </div> 
             <!--end content 10col-->
         </div>
