@@ -28,10 +28,10 @@ var configAuth = require('./auth');
 var bcrypt = require('bcrypt-nodejs');
 const pg = require('pg')
 var config = {
-  user: 'sgerlaqitnjgaw', //env var: PGUSER
+  user: 'knxcbxyijkokeu', //env var: PGUSER
   database: 'dfmt3a3fiqljkn', //env var: PGDATABASE
-  password: 'e7ff259a2f5b7e9ad34ce5381902494c5f192a6be060c73e52c81afed424c942', //env var: PGPASSWORD
-  host: 'postgres://sgerlaqitnjgaw:e7ff259a2f5b7e9ad34ce5381902494c5f192a6be060c73e52c81afed424c942@ec2-23-21-76-49.compute-1.amazonaws.com:5432/dfmt3a3fiqljkn', // Server hosting the postgres database
+  password: '642dfea2e4ac783e944acbd3805d41bba25872b9701241c8e4af09a8230f46b5', //env var: PGPASSWORD
+  host: 'postgres://knxcbxyijkokeu:642dfea2e4ac783e944acbd3805d41bba25872b9701241c8e4af09a8230f46b5@ec2-54-225-182-108.compute-1.amazonaws.com:5432/dakh6j1dv2f8jj', // Server hosting the postgres database
   port: 5432, //env var: PGPORT
   max: 10, // max number of clients in the pool
   idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
