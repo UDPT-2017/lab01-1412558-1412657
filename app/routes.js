@@ -13,10 +13,10 @@ var transporter = nodemailer.createTransport('smtp://kool.milk.tea%40gmail.com:T
 
 const pg = require('pg')
 var config = {
-  user: 'postgres', //env var: PGUSER
-  database: 'lab01', //env var: PGDATABASE
-  password: 'Kuga1996', //env var: PGPASSWORD
-  host: 'localhost', // Server hosting the postgres database
+  user: 'knxcbxyijkokeu', //env var: PGUSER
+  database: 'dakh6j1dv2f8jj', //env var: PGDATABASE
+  password: '642dfea2e4ac783e944acbd3805d41bba25872b9701241c8e4af09a8230f46b5', //env var: PGPASSWORD
+  host: 'ec2-54-225-182-108.compute-1.amazonaws.com', // Server hosting the postgres database
   port: 5432, //env var: PGPORT
   max: 10, // max number of clients in the pool
   idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
