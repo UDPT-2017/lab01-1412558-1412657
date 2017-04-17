@@ -132,6 +132,7 @@ module.exports = function(app, passport) {
 		    res.render("blog.ejs", {blog_list:result, user:req.user});
 		  	}); // end client
 		}); // end pool
+		res.send("lỗi load blog");
 	}); // end app
 
 
