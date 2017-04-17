@@ -265,7 +265,7 @@ module.exports = function(passport) {
                     // insert user in database
                    // console.log(newUser.name);
                     pool.query('INSERT INTO "Users" ("facebook_id", "password",facebook_token", "name", "email", "avatar", "facebook_link") VALUES ($1,$2,$3,$4,$5,$6)',
-                        [profile.id, '',newUser.facebook.token, newUser.name, newUser.email, newUser.avatar, newUser.facebook.linkFB], function (err, rows){
+                        [profile.id, '!@#$%)*(%^^&$%##$%#$%%^&^!##$^%%*(%$',newUser.facebook.token, newUser.name, newUser.email, newUser.avatar, newUser.facebook.linkFB], function (err, rows){
                         if (err){
                                // console.log("lỗi zồi");
                                 return done(err);
