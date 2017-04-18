@@ -24,6 +24,12 @@
             <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">
                     <% if (user) { %>
+                        <!-- <strong>FB tokken</strong>: <%= user.facebook_token %><br>
+                        <strong>FB id</strong>: <%= user.facebook_id %><br>
+                        <strong>FB Link</strong>: <%= user.facebook_link %><br>
+                        <strong>email</strong>: <%= user.email %><br>
+                        <strong>phone</strong>: <%= user.phone %><br>
+                        <strong>password</strong>: <%= user.password %><br> -->
                         <img class="media-object" src="<%= user.avatar %>" alt="no avatar" style="width: 30px; height: 30px">
                     <% } %>
 
@@ -33,6 +39,7 @@
                         <li class="" style="text-align: left"><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất </a></li>
                         <li class="" style="text-align: left"><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Đăng nhập </a></li>
                         <li class="" style="text-align: left"><a href="/signup"><span class="glyphicon glyphicon-pencil"></span> Đăng ký </a></li>
+                        <li class="" style="text-align: left"><a href="/profile"><span class="glyphicon glyphicon-user"></span> Profile </a></li>
                         </ul>
                 </div>
             </div>
