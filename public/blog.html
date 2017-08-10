@@ -6,19 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1">
     <!-- đọc cấu hình thiết bị-->
-    <title>Home</title>
+    <title>Blog</title>
     <!-- thự viện font icon-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    <script type="text/javascript" src="/js/jquery-3.2.0.min.js"></script>
-    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </head>
 
 <body>
     <div class="container">
         <div class="row">
+
             <div class="col-md-12">
             <% if (user) { %>            
                 <strong>id</strong>: <%= user.id %><br>
@@ -46,11 +47,6 @@
                         </ul>
                 </div>
             </div>
-
-         
-                
-           
-
             <!-- header 12 cột -->
             <div class="col-md-12">
 
@@ -60,12 +56,10 @@
                             <a href="/"> <img class="img-responsive" src="/img/logo-kool.jpg"></a>
                         </div>
                         <div class="col-md-6">
-
-                       <a href="/"> <img class="img-responsive" src="/img/banner-kool.jpg"></a>
-
+                        <a href="/"> <img class="img-responsive" src="/img/banner-kool.jpg"></a>
                         </div>
                     </div>
-                
+                    
                 <header>
                     <!-- code navbar, menu-->
                     <nav class="navbar navbar-default" role="navigation">
@@ -89,20 +83,22 @@
 
                             <div class="collapse navbar-collapse" id="collapse">
                                 <ul class="nav navbar-nav navbar-left"> <!-- navbar năm bên trái-->
-                                    <li class="active"><a href="/"><span class="glyphicon glyphicon-home"></span> Home </a>
+                                    <li><a href="/"><span class="glyphicon glyphicon-home"></span> Home </a>
                                     </li>
                                     <li><a href="/albums"><span class="glyphicon glyphicon-picture"></span> Albums </a>
                                     </li>
                                     <li><a href="/about"><span class="glyphicon glyphicon-info-sign"></span> About </a>
                                     </li>
-                                    <li><a href="/blog"><span class="glyphicon glyphicon-user"></span> Blog </a>
+                                    <li class="active"><a href="/blog"><span class="glyphicon glyphicon-user"></span> Blog </a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <!--   cho biết đang ở đâu, từ đâu đến-->
                         <ol class="breadcrumb">
-                            <li class="active">Home</li>
+                            <li><a href="/">Home</a>
+                            </li>
+                            <li class="active">Blog</li>
                         </ol>
                     </nav>
                 </header>
@@ -114,7 +110,7 @@
 
 
 
-            <!-- menu trái 2 cột, 10 cột content-->
+            <!-- menu trái 3 cột, 9 cột content-->
 
 
         <div class="row">
@@ -141,18 +137,50 @@
                     </div>
                 </nav>  
             </div>
-            <!-- end col-md-2 -->
+            <!-- end col-md-3 -->
 
 
-            <!-- content 10col -->
+            <!-- content 9col -->
             <div class="col-md-10">
+                <!-- post-preview -->
+                <% blog_list.rows.forEach(function(blog){ %>
+                     <div class="post-preview">
+                    <a href="/blog/detail/id=<%= blog.id%>">
+                        <h2 class="post-title">
+                            <%= blog.title %>
+                        </h2>
+
+                       
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img class="style-blog-img" alt="#" src="<%= blog.img%>">
+                                </div>
+                                <div class="col-md-9">
+
+                                    <h3 class="post-subtitle">
+                            <%= blog.subtitle%>
+                        </h3>
+                                </div>
+                            </div>
+                    
+
+
+                    </a>
+                    <p class="post-meta"> BY <a href="#"> <%= blog.nameAuthor %> </a> ON <%= blog.time %> </p>
+                    <p><span class="glyphicon glyphicon-eye-open"></span> <small> <%= blog.view %> </small></p>
+                    </div>
+                    <hr>
+                <% }); %>
                 
+                <!-- end post-preview -->   
 
 
             </div> 
             <!--end container 9col-->
         </div>
         <!-- end row -->
+
+
             <div class="row">
                 <div class="col-md-12">
                     <footer>

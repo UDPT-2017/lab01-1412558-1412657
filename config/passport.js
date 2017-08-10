@@ -251,7 +251,7 @@ module.exports = function(passport) {
                 } else {
                     // if there is no user with that username
                     // create the user
-                     var newUser = new User();
+                    var newUser = new User();
                     // // set all of the facebook information in our user model
                     newUser.id    = profile.id; // set the users facebook id                   
                     newUser.facebook.token = token; // we will save the token that facebook provides to the user                    
